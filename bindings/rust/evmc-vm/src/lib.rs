@@ -299,7 +299,7 @@ impl<'a> ExecutionContext<'a> {
     /// Get code hash of an account.
     pub fn get_code_hash(&self, address: &Address) -> Bytes32 {
         unsafe {
-            assert!((*self.host).get_code_size.is_some());
+            assert!((*self.host).get_code_hash.is_some());
             (*self.host).get_code_hash.unwrap()(self.context, address as *const Address)
         }
     }
@@ -416,6 +416,31 @@ impl<'a> ExecutionContext<'a> {
                 self.context,
                 address as *const Address,
                 key as *const Bytes32,
+            )
+        }
+    }
+
+    /// Read from a transient storage key.
+    pub fn get_transient_storage(&self, address: &Address, key: &Bytes32) -> Bytes32 {
+        unsafe {
+            assert!((*self.host).get_transient_storage.is_some());
+            (*self.host).get_transient_storage.unwrap()(
+                self.context,
+                address as *const Address,
+                key as *const Bytes32,
+            )
+        }
+    }
+
+    /// Set value of a transient storage key.
+    pub fn set_transient_storage(&mut self, address: &Address, key: &Bytes32, value: &Bytes32) {
+        unsafe {
+            assert!((*self.host).set_transient_storage.is_some());
+            (*self.host).set_transient_storage.unwrap()(
+                self.context,
+                address as *const Address,
+                key as *const Bytes32,
+                value as *const Bytes32,
             )
         }
     }

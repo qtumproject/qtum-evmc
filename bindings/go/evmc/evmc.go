@@ -112,6 +112,7 @@ const (
 	Cancun               Revision = C.EVMC_CANCUN
 	Prague               Revision = C.EVMC_PRAGUE
 	Osaka                Revision = C.EVMC_OSAKA
+	Experimental         Revision = C.EVMC_EXPERIMENTAL
 	MaxRevision          Revision = C.EVMC_MAX_REVISION
 	LatestStableRevision Revision = C.EVMC_LATEST_STABLE_REVISION
 )
@@ -205,13 +206,16 @@ type Result struct {
 }
 
 func (vm *VM) Execute(ctx HostContext, rev Revision,
-	kind CallKind, static bool, depth int, gas int64,
+	kind CallKind, static bool, delegated bool, depth int, gas int64,
 	recipient Address, sender Address, input []byte, value Hash,
 	code []byte) (res Result, err error) {
 
 	flags := C.uint32_t(0)
 	if static {
 		flags |= C.EVMC_STATIC
+	}
+	if delegated {
+		flags |= C.EVMC_DELEGATED
 	}
 
 	ctxId := addHostContext(ctx)

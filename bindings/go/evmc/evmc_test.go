@@ -47,7 +47,7 @@ func TestExecuteEmptyCode(t *testing.T) {
 
 	addr := Address{}
 	h := Hash{}
-	result, err := vm.Execute(nil, Byzantium, Call, false, 1, 999, addr, addr, nil, h, nil)
+	result, err := vm.Execute(nil, Byzantium, Call, false, false, 1, 999, addr, addr, nil, h, nil)
 
 	if !bytes.Equal(result.Output, []byte("")) {
 		t.Errorf("execution unexpected output: %x", result.Output)
@@ -64,7 +64,7 @@ func TestExecuteEmptyCode(t *testing.T) {
 }
 
 func TestRevision(t *testing.T) {
-	if MaxRevision != Osaka {
+	if MaxRevision != Experimental {
 		t.Errorf("missing constant for revision %d", MaxRevision)
 	}
 	if LatestStableRevision != Cancun {

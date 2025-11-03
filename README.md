@@ -53,15 +53,16 @@ Please visit the [documentation].
 
 - [aleth]
 - [core-geth] (in progress)
+- [erigon] (with silkworm)
 - [evmc-js]
 - [go-ethereum] (in progress)
 - [nim-evmc]
+- [phant] (in progress)
 - [pyevm] (in progress)
 - [pyethereum] (abandoned)
 - [rust-ssvm] (Rust Host-side)
 - [silkworm]
 - [Solidity] (for integration testing)
-- [turbo-geth]
 
 ## Maintainers
 
@@ -105,6 +106,7 @@ Licensed under the [Apache License, Version 2.0].
 [Hera.rs]: https://github.com/ewasm/hera.rs
 [Daytona]: https://github.com/axic/daytona
 [eip1962-evmc]: https://github.com/axic/eip1962-evmc
+[erigon]: https://github.com/erigontech/erigon
 [ssvm-evmc]: https://github.com/second-state/ssvm-evmc
 [Gitter]: https://gitter.im/ethereum/evmc
 [aleth-interpreter]: https://github.com/ethereum/aleth/tree/master/libaleth-interpreter
@@ -112,10 +114,10 @@ Licensed under the [Apache License, Version 2.0].
 [Solidity]: https://github.com/ethereum/solidity
 [nim-evmc]: https://github.com/status-im/nim-evmc
 [go-ethereum]: https://github.com/ethereum/go-ethereum/pull/17954
+[phant]: https://github.com/jsign/phant
 [pyevm]: https://github.com/ethereum/py-evm
 [pyethereum]: https://github.com/ethereum/pyethereum/pull/406
-[silkworm]: https://github.com/torquem-ch/silkworm
-[turbo-geth]: https://github.com/ledgerwatch/turbo-geth
+[silkworm]: https://github.com/erigontech/silkworm
 [core-geth]: https://github.com/etclabscore/core-geth/issues/55
 [evmc-js]: https://github.com/RainBlock/evmc-js
 [rust-ssvm]: https://github.com/second-state/rust-ssvm
